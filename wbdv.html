@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        .about-container {
+            margin: 0;
+            padding: 0;
+        }
+       html, body {
+        height: 100%;
+       }
+       
+       * {
+        box-sizing: border-box;
+        margin: 0;
+       }
+
+        .background-img {
+            background-position: center;
+            min-height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            width: 100%;
+
+        }
+        .img1 {
+            position: relative;
+            overflow: hidden;
+        }
+        .img1::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://community.gamedev.tv/uploads/db2322/original/3X/6/2/62dd0a15e7aea5745ed1354c19d6a5d7104f95e8.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: blur(1.4px); 
+            box-shadow: 0 0 300px rgba(0,0,0,10) inset;
+            z-index: 0;
+        }
+        .img2 {
+            background-image: url("https://res.cloudinary.com/dntraxssr/image/upload/v1742985046/bg_umimsa.png");
+        }
+        .img3 {
+            background-image: url("https://res.cloudinary.com/dntraxssr/image/upload/v1742985033/bg2_xo4ftl.png");
+        }
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            filter: none;
+            background-color: #1e1e1e;
+            height: 75px;
+        }   
+
+        nav ul {
+            position: relative;
+            top: 30px;
+            right: 80px;
+            display: inline-block;
+            float: right;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+        .nav-container a {
+            text-decoration: none;
+            color: white;
+            font-family:'Montserrat';
+            font-size: 12px;
+        }
+        .nav-link::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #ffcc00;
+            transition: width 0.3s ease-out 0.1s;
+
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:hover::before {
+            width: 100%;
+        }
+        
+        .nav-container img{
+            position: relative;
+            top: 10px;
+        }
+        .laman {
+            position: relative;
+            z-index: 2;
+            filter: none;
+            text-align: center;
+            padding-top: 250px;
+            animation: fadeIn 0.6s ease-out 0.2s forwards;
+            font-family: 'EB Garamond';
+            font-size: 30px;
+            color: #f8ebc1;
+            letter-spacing: 2px;
+        }
+
+        .laman-page2 figure {
+            position: relative;
+            top: 50px;
+            left: -50px;
+        }
+
+        .text {
+            position: relative;
+            top: 50px;
+            right: 230px;
+            float: right;
+            color: white;
+        }
+        .laman-page2 img {
+            animation: fadeIn 0.8s ease-out 0.4s forwards;
+        }
+        .text h1{
+            margin-bottom: 90px;
+            font-family: 'EB Garamond';
+            font-size: 50px;
+            animation: fadeIn 0.8s ease-out 0.4s forwards;
+        }
+        .text figcaption {
+            font-family: 'Cinzel';
+            font-size: 16px;
+            animation: fadeIn 0.8s ease-out 0.6s forwards;
+        }
+        .laman-page3 img{
+            position: relative;
+            top: 160px;
+            left: 100px;
+            border-radius: 12px;
+            animation: fadeIn 0.8s ease-out 0.8s forwards;
+        }
+        .text-2 {
+            position: relative;
+            top: 120px;
+            right: 170px;
+            float: right;
+            color: black;
+            animation: fadeIn 0.8s ease-out 0.6s forwards;
+        }
+        .text-2 h1{
+            margin-bottom: 60px;
+            font-family: 'EB Garamond';
+            font-size: 50px;
+        }
+        .text-2 figcaption {
+            font-family: 'Cinzel';
+            font-size: 16px
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <div class="background-img img1">
+            <div class="nav-container">
+                <nav>
+                    <img src="https://res.cloudinary.com/dntraxssr/image/upload/v1742985055/logo_iqkjf8.png" alt="logo" width="100px"/>
+                    <ul>
+                        <li><a href="#" class="nav-link">Home</a></li>
+                        <li><a href="#" class="nav-link">About us</a></li>
+                        <li><a href="#" class="nav-link">Gallery</a></li>
+                        <li><a href="#" class="nav-link">Contacts</a></li>
+                        <li><a href="#" class="nav-link">Knights</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="laman">
+                <h1>ABOUT OUR STORY</h1>
+            </div>
+        </div>
+
+
+        <div class="background-img img2">
+            <div class="laman-page2">
+                <figure>
+                    <img src="https://res.cloudinary.com/dntraxssr/image/upload/v1742985039/knght-removebg-preview_chzsgk.png" loading="lazy" alt="knight" width="900px"/>
+                    <div class="text">
+                        <h1>⚔️ ABOUT US</h1>
+                        <figcaption>Founded centuries ago by the valiant King</br>Aldric the Brave, Valoria was built on the</br>principles of justice, strength, and unwavering</br>loyalty. Our kingdom has withstood the test of</br>time, defending its people against countless</br>invasions and preserving the code of honor</br>that binds us.</figcaption>
+                     </div>
+                </figure>
+            </div>
+        </div>
+
+
+        <div class="background-img img3">
+            <div class="laman-page3">
+                <figure>
+                    <img src="https://res.cloudinary.com/dntraxssr/image/upload/v1742985059/archer-in-armor-stockcake_eusk2m.jpg" alt="archer" width="450px"/>
+                    <div class="text-2">
+                        <h1>Our Mission</h1>
+                        <figcaption>To preserve the ancient values of</br>knighthood while protecting our</br>kingdom from those who seek to</br>disrupt its harmony. We believe that</br>bravery, loyalty, and honor</br>can triumph over darkness, and we welcome</br>all who seek to uphold these ideals.</figcaption>
+                     </div>
+                </figure>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>
