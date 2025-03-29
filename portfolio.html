@@ -10,7 +10,7 @@
     <style>
 /* General Reset */
 .landing-container {
-    width: 100vw; /* Ensure it doesn't overflow */
+    width: 100%; /* Fix: Prevents unnecessary scroll */
     max-width: 100%;
     overflow-x: hidden;
 }
@@ -18,16 +18,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    max-width: 100vw;
-}
-div {
-    max-width: 100%;
-    overflow-x: hidden;
-
 }
  
-html {
+html , body{
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 /* Body and Content Styles */
