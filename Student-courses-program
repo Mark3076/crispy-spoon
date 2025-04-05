@@ -1,0 +1,125 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+
+#define MAX_COURSES 3
+#define MAX_STUDENTS 10
+struct Courses {
+    char code[20];
+    char title[20];
+    float score;
+};
+
+struct Student{
+    char name[30];
+    int numofcourses;
+    struct Courses course[MAX_COURSES];
+};
+
+void coursetitle(char *courseCode, char *courseTitle)
+{
+    if(strcmp(courseCode, "MAT101") == 0){
+        strcpy(courseTitle, "Mathematics 101");
+    } 
+    else if (strcmp(courseCode, "COMP1") == 0){
+        strcpy(courseTitle, "Computer 101");
+    }
+    else if (strcmp(courseCode, "ENG101") == 0)
+    {
+        strcpy(courseTitle, "English 101");
+    } else {
+        strcpy(courseTitle, "UNKNOWN COURSE");
+    }
+        
+};
+
+void uppercase(char str[])
+{
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        str[i] = toupper(str[i]);
+    }
+}
+
+
+int main (){
+    struct Student students[MAX_STUDENTS];
+    int num;
+    
+    printf("Enter number of students: ");
+    scanf("%d", &num);
+    getchar();
+    
+    for(int i = 0; i < num; i ++)
+    {
+    
+    printf("\nStudent %d Name: ", i + 1);
+    fgets(students[i].name, sizeof(students[i].name), stdin);
+    students[i].name[strcspn(students[i].name, "\n")] = '\0';
+    
+    printf("Enter number of courses of %s: " , students[i].name);
+    scanf("%d", &students[i].numofcourses);
+    getchar();
+    
+    for (int j = 0; j <students[i].numofcourses; j ++)
+    {
+            
+        
+        printf("\tEnter course code %d: ", j + 1);
+        fgets(students[i].course[j].code, sizeof(students[i].course[j].code), stdin);
+        students[i].course[j].code[strcspn(students[i].course[j].code, "\n")] = '\0';
+        
+        coursetitle(students[i].course[j].code, students[i].course[j].title);
+        
+        printf("\tCourse Title: %s", students[i].course[j].title);
+        printf("\n");
+        if (strcmp(students[i].course[j].title, "UNKNOWN COURSE") == 0)
+        {
+            continue;
+        }
+        
+        
+        printf("\tScore: ");
+        scanf("%f", &students[i].course[j].score);
+        getchar();
+        printf("\n");
+    }
+    }
+    
+    printf("\nSUMMARY\n");
+    
+    for(int i = 0; i < num; i++)
+    {
+        char uppers[50];
+        strcpy(uppers, students[i].name);
+        uppercase(uppers);
+        
+        printf("Student's Name: %s\n", uppers);
+        printf("Courses enrolled: ");
+        
+        float total = 0;
+        
+        for(int j = 0; j < students[i].numofcourses; j++)
+        {
+            char uppertitle[70];
+            strcpy(uppertitle, students[i].course[j].title);
+            uppercase(uppertitle);
+            
+            printf("%s", uppertitle);
+            if (j < students[i].numofcourses - 1) {
+                printf(", ");
+            }
+            
+            total += students[i].course[j].score;
+        }
+        float average = total / students[i].numofcourses;
+        printf("\nAverage Scores: %.2f\n\n", average);
+    }
+    
+    
+    
+    
+    
+    return 0;
+}
