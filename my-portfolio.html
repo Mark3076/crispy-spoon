@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Westley's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        html {
+        scroll-behavior: smooth;
+        }
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        h1 , p{
+            font-family: 'Montserrat';
+        }
+        .my-name {
+            font-weight: 650;
+            padding: 10px;
+        }
+        body {
+            overflow-x: hidden;
+
+        }
+        figure {
+        max-width: 100%;
+        width: auto;
+        display: block;
+        }
+        figcaption {
+
+            display: block;
+        }
+        #mobile-menu {
+    overflow-x: hidden;
+    }
+    
+    .fade-enter {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    .fade-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 300ms ease-in-out;
+    }
+    .fade-exit-active {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 300ms ease-in-out;
+    }
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    @keyframes fade {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        100% {
+            opacity: 1;
+                transform: translateY(0);
+        }
+    }
+    #home, #about, #project, #contact {
+            animation: fade 1s;
+        }
+    </style>
+</head>
+<body class="bg-[#dcddd8] w-full m-0">
+    <header>
+        <nav class="w-full max-w-full bg-[#cacac2] p-4 flex justify-between items-center z-40 sm:w-full overflow-x-hidden fixed shadow-sm top-0">
+            
+            <img src="https://res-console.cloudinary.com/dntraxssr/thumbnails/v1/image/upload/v1744174355/bG9nby1teV90bDViYnM=/drilldown" alt="logo" width="70px">
+
+            
+            <ul class="hidden sm:flex space-x-6 text-black font-semibold lg:relative lg:right-10 gap-6">
+                <li class="relative">
+                    <a href="#home" class="hover:text-gray-500">
+                        Home
+                    </a>
+                </li>
+                <li class="relative">
+                    <a href="#about" class="hover:text-gray-500">
+                        About
+                        <span class="absolute left-0 bottom-0 block w-0 h-0.5 bg-blue-500 transition-all duration-300 ease-in-out hover:w-full"></span>
+                    </a>
+                </li>
+                <li class="relative">
+                    <a href="#project" class="hover:text-gray-500">
+                        Projects
+                        <span class="absolute left-0 bottom-0 block w-0 h-0.5 bg-blue-500 transition-all duration-300 ease-in-out hover:w-full"></span>
+                    </a>
+                </li>
+                <li class="relative">
+                    <a href="#" class="contactBtn  hover:text-gray-500">
+                        Contact
+                        <span class="absolute left-0 bottom-0 block w-0 h-0.5 bg-blue-500 transition-all duration-300 ease-in-out hover:w-full"></span>
+                    </a>
+                </li>
+            </ul>
+            
+           
+            <button id="menu-btn" class="sm:hidden flex flex-col gap-1 cursor-pointer">
+                <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+                <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+                <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+            </button>
+        </nav>
+
+        
+        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-gray-800 text-white flex flex-col items-center justify-center gap-6 opacity-0 transform translate-x-0 sm:translate-x-full transition-all duration-500 ease-in-out z-50 overflow-x-hidden">
+            
+            <button id="close-btn" class="absolute top-5 right-5 text-2xl transition-all duration-300 hover:scale-110">✕</button>
+
+            <ul class="text-lg font-semibold space-y-6 text-center">
+                <li><a href="#home" class="hover:text-gray-400">Home</a></li>
+                <li><a href="#about" class="hover:text-gray-400">About</a></li>
+                <li><a href="#project" class="hover:text-gray-400">Projects</a></li>
+                <li><a href="#" class="contactBtn hover:text-gray-400">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <script>
+        
+        const menuBtn = document.getElementById("menu-btn");
+        const closeBtn = document.getElementById("close-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+    
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("translate-x-full", "opacity-0");
+            mobileMenu.classList.add("translate-x-0", "opacity-100");
+        });
+    
+        closeBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("translate-x-0", "opacity-100");
+            mobileMenu.classList.add("translate-x-full", "opacity-0");
+        });
+    
+        
+        const menuLinks = mobileMenu.querySelectorAll("a");
+        menuLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.remove("translate-x-0", "opacity-100");
+                mobileMenu.classList.add("translate-x-full", "opacity-0");
+            });
+        });
+    </script>
+    
+    <div class="bg-[#dcddd8] min-h-screen-[100vh] pt-11 pl-6 lg:h-[86vh] lg:w-full" id="home">
+        <div class="flex flex-col lg:ml-6 lg:mt-10">
+            <h1 class="text-[10vw] pt-11 my-name lg:text-[50px] lg:pt-10 lg:font-semibold">MARK WESTLEY VILLEGAS</h1>
+            <p class="text-sm ml-5">Aspiring Web Developer</p>
+        
+        <figure class="flex gap-[5px]relative top-12  overflow-x-hidden mt-[20px] mr-[20px] mb-[40px] ml-[40px] lg:gap-2">
+
+            <a href="https://www.facebook.com/Westley828495059" target="_blank" class="hover:scale-90 transition-transform duration-300 delay-75">
+                <img src="https://res.cloudinary.com/dntraxssr/image/upload/v1743225981/fb-logo_kkclxq.png" alt="pic" width="50px" height="10px" href="#"/>
+            </a>
+
+            <a href="" target="_blank" class="hover:scale-90 transition-transform duration-300 delay-75">
+                <img src="https://res.cloudinary.com/dntraxssr/image/upload/v1743225977/gmail_logo_ie3glh.png" alt="pic" width="50px" height="10px" href="#"/>
+            </a>
+
+            <a href="https://www.instagram.com/yflxv.ww/profilecard/?igsh=am5jMWVmZ3h1MWNi" target="_blank" class="hover:scale-90 transition-transform duration-300 delay-75">
+                <img src="https://res.cloudinary.com/dntraxssr/image/upload/v1743225991/ig_logo_ivnhhm.png" alt="pic" width="50px" height="10px" href="#"/>
+            </a>
+        </figure>
+        </div>
+
+        <div class="flex justify-center relative top-11 lg:mr-[1100px] lg:top-[50px] ">
+            <a href="#project" class="bg-[#dcddd8] border-solid border-[2px] border-[#cb8542] text-[#cb8542] rounded-[50px] py-[9px] px-[14px] font-normal  max-w-[100%] font-['Roboto']  text-[15px] lg:text-[15px] lg:hover:text-white hover:bg-[#cb8542] hover:scale-90 transition-all duration-300 delay-75">View my Projects</a>
+        </div>
+
+        <div class="flex justify-end my-36 mx-0">
+            <img src="https://res.cloudinary.com/dntraxssr/image/upload/v1743226057/mypic2_zmnfmm.jpg" alt="my Photo" width="300px" class="rounded relative lg:-top-[300px] overflow-x-hidden z-30 mb-10"/>
+        </div>
+
+        <div class="hidden relative lg:inline lg:w-full lg:-top-[550px] left-[200px] text-white lg:z-30">
+            <p>An aspiring developer passionate about turning ideas into reality<br/> through code. Check out my work and join me on my journey!</p>
+        </div>
+    </div>
+
+    <div class="bg-[#63645f] min-h-screen-[200vh] relative -top-56 lg:top-0 mb-0 lg:w-full" id="about">
+        <h1 class="text-5xl pt-20 my-name text-white relative top-24 left-0  pl-5 lg:ml-7">About Me</h1>
+        <div class="lg:flex lg:flex-row">
+        <div class="ml-[20px] mt-48 lg:ml-24 lg:mb-6">
+            <img src="https://res.cloudinary.com/dntraxssr/image/upload/v1743226042/picko_z7zxgo.jpg" alt="pic ko ulit" width="300px" class="rounded lg:w-[430px]"/>
+        </div>
+
+        <div class="flex justify-around mt-14 lg:relative lg:top-28 lg:left-44">
+            <p class="text-[2.5vw] lg:text-[15px] text-white pb-52 ">My name is Mark Westley F. Villegas, and I am an 18-year-old</br/>BSIT freshman at Our Lady of Fatima University. I am </br/>passionate about technology and currently focusing on </br/>refining my skills and logic in programming and web </br/>development. As a dedicated learner, I strive to enhance my </br/>knowledge and expertise to achieve my goal of becoming a </br/>successful developer or programmer. I am eager to explore </br/>new challenges and opportunities that will help me grow in</br/> the field of IT.</br/></br/></br/>
+    
+                Outside of coding, I enjoy watching movies, listening to </br/>music, and playing basketball, which help me relax and stay </br/>active. I also hit the gym occasionally to maintain a healthy </br/>lifestyle.</br/></br/></br/>
+                
+                In addition to my studies, I work as a Lalamove rider as a </br/>side hustle, allowing me to develop time management skills </br/>while earning extra income. I believe in balancing work, </br/>learning, and personal interests to grow both professionally </br/>and personally.
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <div class="bg-[#dcddd8] min-h-screen mt-0 mb-0">
+        <div class="flex flex-wrap gap-20 mb-8 justify-evenly mx-8">
+            <div class="lg:w-full lg:flex lg:justify-center md:justify-center md:w-full">
+                <h1 class="text-5xl pt-11 my-name text-black relative top-20 text-center font-bold mb-28">SKILLS</h1>
+            </div>
+            
+            <figure class="w-[350px] flex justify-center text-center flex-wrap align-baseline gap-5 p-5">
+               <img src="https://kinsta.com/wp-content/uploads/2021/03/HTML-5-Badge-Logo-768x419.png" alt="HTML Logo" width="200px" />
+                <figcaption><p class="text-xs mt-3"><span class="text-sm font-bold">HTML<br/></span><span class="description"></span>I have several months of experience<br/>working with HTML and am<br/>continuously improving my skills. I’m comfortable<br/>with creating structured web pages<br/>and understanding semantic elements.</p></figcaption>
+            </figure>
+
+            <figure class="w-[350px] flex justify-center text-center flex-wrap align-baseline gap-5 p-5">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/512px-CSS3_logo.svg.png?20210705212817" alt="CSS Logo" width="115px"/>
+                <figcaption><p class="text-xs mt-3"><span class="text-sm font-bold">CSS<br/></span><span class="description"></span>I have a decent knowledge of CSS,<br/>allowing me to style and enhance the<br/>appearance of web pages effectively.<br/>I’m familiar with applying responsive<br/>design techniques and improving layouts.</p></figcaption>
+            </figure>
+
+            <figure class="w-[350px] flex justify-center text-center flex-wrap align-baseline gap-5 p-5">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/380px-C_Programming_Language.svg.png?20201031132917" alt="C Language Logo" width="105px"/>
+                <figcaption><p class="text-xs mt-3"><span class="text-sm font-bold">C Language<br/></span><span class="description"></span>I have a solid understanding of the C<br/>language, with months of experience<br/>and consistent practice. I’m keeping<br/>up with lessons and improving my<br/>problem-solving abilities through<br/>coding exercises.</p></figcaption>
+            </figure>
+
+            <figure class="w-[350px] flex justify-center text-center flex-wrap align-baseline gap-5 p-5">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/115px-Python-logo-notext.svg.png" alt="Python Logo" width="115px"/>
+                <figcaption><p class="text-xs mt-0"><span class="text-sm font-bold">Python<br/></span><span class="description"></span>I previously studied Python and, although<br/>I’ve forgotten a bit, I’m confident that I<br/>can regain proficiency with practice. I’m<br/>capable of writing basic scripts and exploring more<br/>complex applications with continued learning.</p></figcaption>
+            </figure>
+        </div>
+        <div class="bg-[#bbbbb5] min-h-screen mt-0 mb-0">
+        <div class="flex flex-wrap gap-36 mb-8 justify-evenly mx-8">
+            <div class="lg:w-full lg:flex lg:justify-center md:justify-center md:w-full">
+                <h1 class="text-5xl pt-11 my-name text-black relative top-36 text-center font-bold mb-28" id="project">My Works</h1>
+            </div>
+            
+            <figure class="bg-white w-[350px] flex justify-center text-center flex-wrap align-baseline gap-10 p-[20px] shadow-2xl rounded-md">
+                <h2 class="font-['Roboto'] font-semibold">Pet Shop E-commerce</h2>
+                <img src="https://res-console.cloudinary.com/dntraxssr/thumbnails/v1/image/upload/v1743852835/Z2FsbGVyeV9sc3l3cWg=/drilldown" alt="project" width="600px" class="shadow-xl rounded-sm"/>
+                <figcaption class="pb-4 pl-8 pr-8 pt-1 font-['Roboto'] text-gray-600">A simple and clean eCommerce pet shop website with smooth fade-in and hover animations. Browse pet essentials with ease and style.</figcaption>
+                <div>
+                    <button onclick="window.open('https://mark3076.github.io/crispy-spoon/gallery-3%20(1).html', '_blank');" class="hover:scale-90 transition-transform duration-300 delay-75 border-[#cb8542] border-[2px] rounded-lg px-4 py-2 text-[#cb8542] font-['Roboto']">View Project</button>
+                </div>
+            </figure>
+
+            <figure class="bg-white rounded-md w-[350px] flex justify-center text-center flex-wrap align-baseline gap-10 p-[20px] shadow-2xl">
+                <h2 class="font-['Roboto'] font-semibold">Medieval About page</h2>
+                <img src="https://res-console.cloudinary.com/dntraxssr/thumbnails/v1/image/upload/v1743852956/U2NyZWVuc2hvdF8yMDI1LTA0LTA1XzE5MzU0MF9zZm4zbjI=/drilldown" alt="project" width="600px" class="shadow-xl rounded-sm"/>
+                <figcaption class="pb-4 pl-8 pr-8 pt-1 font-['Roboto'] text-gray-600">A medieval kingdom-themed website with a dark, rustic design inspired by ancient scrolls and stone textures. Smooth fade-in animations bring each section to life, creating an immersive and magical browsing experience.</figcaption>
+
+                <button onclick="window.open('https://mark3076.github.io/crispy-spoon/wbdv.html', '_blank');" class="hover:scale-90 transition-transform duration-300 delay-75 border-[#cb8542] border-[2px] rounded-lg px-4 py-2 text-[#cb8542] font-['Roboto']">View Project</button>
+            </figure>
+
+            <figure class="bg-white rounded-md w-[350px] flex justify-center text-center flex-wrap align-baseline gap-10 p-[20px] shadow-2xl mb-44">
+                <h2 class="font-['Roboto'] font-semibold">Student Grading system</h2>
+                <img src="https://res-console.cloudinary.com/dntraxssr/thumbnails/v1/image/upload/v1743852706/bWlkdGVybWxhYjFfdmZyZmRu/drilldown" alt="project" width="600px" class="shadow-xl rounded-sm"/>
+                <figcaption class="pb-4 pl-8 pr-8 pt-1 font-['Roboto'] text-gray-600">A simple C program that manages a student grading system. It allows input of student details, calculates average marks, assigns grades, and displays results in a structured format. Ideal for learning file handling, conditionals, and struct usage in C.</figcaption>
+                <div>
+                    <button onclick="window.open('https://mark3076.github.io/crispy-spoon/wbdv.html', '_blank');" class="hover:scale-90 transition-transform duration-300 delay-75 border-[#cb8542] border-[2px] rounded-lg px-4 py-2 text-[#cb8542] font-['Roboto']">View Project</button>
+                </div>
+            </figure>
+        </div>
+            
+
+    </div>
+    </div>
+    </div>
+
+    <div id="contactMenu" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+        <div id="contactBox" class="bg-[#0e1111] w-[90%] max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl p-6 rounded-xl shadow-lg transform fade-enter relative">
+          <button id="closeContact" class="absolute top-4 right-5 text-gray-500 hover:scale-125 transition-transform duration-300 delay-75 text-3xl font-bold bg-white rounded-full px-2 py-0  ">&times;</button>
+          <h2 class="text-5xl font-bold mb-4 text-start text-white font-['Montserrat'] my-9">GET IN TOUCH</h2>
+          <div class="space-y-8">
+            <form>
+                <input type="text" placeholder="Your name" class="w-full mt-4 py-4 px-2 border-gray-400 border-solid bg-[#0e1111] rounded text-white border-2 mb-3">
+                <input type="email" placeholder="Your email address" class="w-full mt-4 py-4 px-2 border-gray-400 border-solid bg-[#0e1111] rounded text-white border-2 mb-3">
+                <textarea placeholder="What can I help you with?" rows="5"class="w-full mt-4 py-4 px-2 border-gray-400 border-solid bg-[#0e1111] rounded text-white border-2 mb-7"></textarea>
+
+                <button class="p-4 border-solid border-2 border-gray-400 bg-[#0e1111] text-white mb-4 rounded-full font-['Roboto'] font-bold  hover:text-black hover:bg-white scale-125 
+                transition-all duration-150 delay-75 ">Submit Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const contactBtns = document.querySelectorAll('.contactBtn');
+        const contactMenu = document.getElementById('contactMenu');
+        const contactBox = document.getElementById('contactBox');
+        const closeContact = document.getElementById('closeContact');
+      
+        let scrollY = 0;
+      
+        contactBtns.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            scrollY = window.scrollY;
+            contactMenu.classList.remove('hidden');
+      
+            
+            document.body.style.top = `-${scrollY}px`;
+            document.body.classList.add('overflow-hidden');
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+      
+            setTimeout(() => {
+              contactBox.classList.add('fade-enter-active');
+            }, 10);
+          });
+        });
+      
+        closeContact.addEventListener('click', () => {
+          contactBox.classList.remove('fade-enter-active');
+          contactBox.classList.add('fade-exit-active');
+      
+          setTimeout(() => {
+            contactBox.classList.remove('fade-exit-active');
+            contactMenu.classList.add('hidden');
+      
+            
+            document.body.classList.remove('overflow-hidden');
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, scrollY);
+          }, 300);
+        });
+
+                document.querySelectorAll('a[href="#contact"]').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+        });
+        });
+
+      </script>
+    
+    <div class="bg-[#dcddd8] min-h-[50%] mt-0 mb-0">
+        <div class="flex justify-center flex-col items-center gap-5"> 
+            <h1 class="text-black font-bold font-['Montserrat'] text-2xl text-center">OPEN CONTACT FORM</h1>
+            <button class ="contactBtn font-['Montserrat'] text-xl bg-[#dcddd8] border-2 border-solid border-black p-4 rounded-full font-bold z-30 hover:scale-90 transition-transform duration-300 delay-75 inline-block ">Contact Me</button>
+        </div>
+        <div class="bg-zinc-950 w-full h-20 flex items-center justify-center mt-7">
+            <h1 class="font-['Roboto'] text-center text-white">&copy; 2025 Westley's Portfolio</h1>
+        </div>      
+    </div>
+    
+</body>
+</html>
